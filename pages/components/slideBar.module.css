@@ -1,0 +1,149 @@
+.slidebar {
+  position: absolute;
+  color: white;
+  background-color: black;
+  opacity: 0.5;
+  transform: translateX(-100%);
+  top: 10%;
+  height: 80vh;
+  width: 20rem;
+  z-index: 20;
+}
+.innerMenu {
+  position: absolute;
+  color: white;
+  background-color: transparent;
+  transform: translateX(-100%);
+  left: 0;
+  right: 0;
+  top: 10%;
+  bottom: 0;
+  z-index: 30;
+}
+.innerMenu ul {
+  list-style: none;
+  position: absolute;
+  top: 30%;
+
+  left: 0;
+  right: 0;
+}
+.innerMenu li {
+  padding-bottom: 1rem;
+  padding-right: 0;
+}
+.innerMenu li:hover,
+.innerMenu li:active {
+  background-color: white;
+
+  color: black;
+  transition-duration: 1s;
+}
+
+.menuTab {
+  position: absolute;
+  right: 0;
+}
+.menuTab a:target {
+  display: none;
+}
+#btnControl {
+  position: absolute;
+  display: none;
+  z-index: 20;
+}
+#label {
+  position: absolute;
+  top: 10%;
+  left: 05%;
+  z-index: 40;
+  background-color: red;
+  height: 5px;
+  width: 40px;
+}
+#label:before {
+  content: '';
+  height: 5px;
+  bottom: 10px;
+  right: 0;
+  position: absolute;
+  width: 40px;
+
+  background-color: white;
+}
+#label:after {
+  content: '';
+  height: 5px;
+  top: 10px;
+  right: 0;
+  position: absolute;
+  width: 40px;
+
+  background-color: white;
+}
+#label span {
+  visibility: hidden;
+}
+@keyframes grow {
+  0% {
+    transform: scale(0.5 0 0.5);
+  }
+  50% {
+    transform: scale(1.1, 1.1);
+  }
+  100% {
+    transform: 0.5 0 0.5;
+  }
+}
+#label:hover {
+  cursor: pointer;
+}
+
+#btnControl:checked ~ .innerMenu {
+  transform: translateX(-25%);
+  transition-duration: 1s;
+}
+#btnControl:checked ~ .slidebar {
+  transform: translateX(0%);
+  transition-duration: 1s;
+}
+#btnControl:checked ~ #label {
+  transform: rotate(120deg);
+  transition-duration: 1s;
+}
+#btnControl:not(:checked) ~ #label {
+  transform: rotate(0);
+  transition-duration: 1s;
+}
+#btnControl:checked ~ #label:after {
+  position: absolute;
+  transition-duration: 1s;
+  transform: rotate(180deg);
+  top: 0;
+}
+#btnControl:not(:checked) ~ #label:after {
+  position: absolute;
+  transition-duration: 1s;
+  transform: rotate(0);
+  top: 10px;
+}
+#btnControl:checked ~ #label::before {
+  position: absolute;
+  transition-duration: 1s;
+  transform: rotate(115deg);
+  top: 0;
+}
+#btnControl:not(:checked) ~ #label::before {
+  position: absolute;
+  transition-duration: 1s;
+  transform: rotate(0);
+  bottom: 10px;
+}
+
+.hamburgerLine1 {
+  width: 10px;
+  height: 3px;
+  color: white;
+  background-color: red;
+  visibility: visible;
+}
